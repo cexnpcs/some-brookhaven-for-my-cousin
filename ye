@@ -47,3 +47,20 @@ end
 end
    end,
 })
+local Section = Tab:CreateSection("Get Candy Corn")
+
+local Slider = Tab:CreateSlider({
+   Name = "Amount of candy corn needed",
+   Range = {12, 35},
+   Increment = 1,
+   Suffix = "Candy",
+   CurrentValue = 12,
+   Flag = "candyslider", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   for _, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
+   if v.Name == "Amount" and v.Parent.Name == "LocalScript" then
+   v.Value = (Value)
+   end
+   end
+   end,
+})
