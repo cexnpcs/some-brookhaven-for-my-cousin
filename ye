@@ -62,5 +62,12 @@ local Slider = Tab:CreateSlider({
    end
    end,
 })
+local Section = Tab:CreateSection("Remove Night Sky")
+local Button = Tab:CreateButton({
+   Name = "FullBright",
+   Callback = function()
+   loadstring(game:HttpGet("https://pastebin.com/raw/06iG6YkU", true))()
+   end,
+})
 
 local Tab = Window:CreateTab("Character", 15041725119) -- Title, Image
