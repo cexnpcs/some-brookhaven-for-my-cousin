@@ -25,24 +25,22 @@ local Window = Rayfield:CreateWindow({
       Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
-local Tab = Window:CreateTab("Main", nil) -- Title, Image
+local Tab = Window:CreateTab("Main", 5084436387) -- Title, Image
 local Section = Tab:CreateSection("Vehicle Speed")
 
 local Slider = Tab:CreateSlider({
    Name = "Vehicle Top Speed Slider",
-   Range = {1, 1000000},
+   Range = {1, 100000},
    Increment = 10,
    Suffix = "Speed",
-   CurrentValue = 500,
+   CurrentValue = 1,
    Flag = "speedslider", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
    local SP = (Value)
-while task.wait() do
 for _, v in pairs(workspace:GetDescendants()) do
-if v.Name == "TopSpeed" and v.Parent.Name == "VehicleSeat" then
+if v.Name == "TopSpeed" and v.Parent.Name == "VehicleSeat" and v.Parent.Parent.Parent.Owner.Value == game.Players.LocalPlayer.Name then
 v.Value = SP
 task.wait()
-end
 end
 end
    end,
@@ -64,3 +62,5 @@ local Slider = Tab:CreateSlider({
    end
    end,
 })
+
+local Tab = Window:CreateTab("Character", 15041725119) -- Title, Image
